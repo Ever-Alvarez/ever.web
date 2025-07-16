@@ -1,0 +1,13 @@
+body{
+    background-color: #242424;
+}
+
+.bodyLogin{
+    /* min-height: 100vh; */
+    /* background-color: #242424; */
+    color: rgb(236, 236, 229);
+}
+
+.col-md-12{
+    border: 1px solid white
+}
