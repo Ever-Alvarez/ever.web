@@ -1,0 +1,7 @@
+.env
+writable/
+node_modules/
+.DS_Store
+*.log
+*.sql
+*.bak
