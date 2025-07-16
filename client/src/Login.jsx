@@ -1,4 +1,4 @@
-import '../assets/css/styles.css'
+import './assets/css/styles.css'
 
 function Login(){
     return (
