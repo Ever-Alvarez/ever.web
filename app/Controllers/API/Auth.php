@@ -14,13 +14,22 @@ class Auth extends ResourceController{
     public function login(){
         $data = $this->request->getJSON(); // CAPTURA DATOS ENVIADOS EN JSON A REACT
 
-        $username = $data->vc_user??'';
-        $pass = $data->vc_pass??'';
+        $username = $data->vc_user;
+        $pass = $data->vc_pass;
+
+        if (empty($data->vc_user) || empty($data->vc_pass)) {
+            return $this->respond("Ingresa los datos de sesion");
+        }
 
         $model = new UsersModel();
         $user = $model->where('vc_user', $username)->where('t_estatus', 1)->first(); //Busca el primer usuario en la tabla tb_users donde vc_user = $username
 
-        if(!$user || password_verify($pass, $user['pass'])){
+        
+        if (is_null($user)) {
+            return $this->failUnauthorized('El usuario no existe');
+        }
+        
+        if(($user['vc_user'] != $username) || !password_verify($pass, $user['pass'])){
             return $this->failUnauthorized('Usuario o contraseña incorrectos.');
         } else {
 
