@@ -18,7 +18,7 @@ class Auth extends ResourceController{
         $pass = $data->vc_pass;
 
         if (empty($data->vc_user) || empty($data->vc_pass)) {
-            return $this->respond("Ingresa los datos de sesion");
+            return $this->failUnauthorized("Ingresa los datos de sesion");
         }
 
         $model = new UsersModel();
@@ -28,6 +28,8 @@ class Auth extends ResourceController{
         if (is_null($user)) {
             return $this->failUnauthorized('El usuario no existe');
         }
+
+        // if(!empty($user['vc_user']) && empty($pass))
         
         if(($user['vc_user'] != $username) || !password_verify($pass, $user['pass'])){
             return $this->failUnauthorized('Usuario o contraseña incorrectos.');

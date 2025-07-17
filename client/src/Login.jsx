@@ -44,13 +44,13 @@ import {useState} from 'react'
                         <div className="form-group">
                             <div className="col-md-9">
                                 <label htmlFor="user">Usuario:</label>
-                                <input id="user" type="text" className="form-control" placeholder="Usuario" value={vc_user} onChange={(e) => setUser(e.target.value)}/>
+                                <input id="user" type="text" className="form-control form-group" placeholder="Usuario" value={vc_user} onChange={(e) => setUser(e.target.value)}/>
                             </div>
                         </div>
                         <div className="form-group">
                             <div className="col-md-9">
                                 <label htmlFor="pass">Contraseña:</label>
-                                <input id="pass" type="password" className="form-control" placeholder="Contraseña" value={vc_pass} onChange={(e) => setPass(e.target.value)}/>
+                                <input id="pass" type="password" className="form-control form-group" placeholder="Contraseña" value={vc_pass} onChange={(e) => setPass(e.target.value)}/>
                             </div>
                         </div>
                         {
@@ -58,12 +58,14 @@ import {useState} from 'react'
                             <div className="form-group">
                                 <div className="col-md-9">
                                     <br />
-                                    {msg}
+                                    <div className="msgLogin">{msg}</div>
                                 </div>
                             </div>
                         }
                         <div className="form-group">
-                            <button type="submit" >Iniciar Sesión</button>
+                            <div className="col-md-9">
+                                <button type="submit" >Iniciar Sesión</button>
+                            </div>
                         </div>
                     </form>
                 </div>
