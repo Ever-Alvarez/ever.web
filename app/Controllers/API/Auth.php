@@ -43,14 +43,14 @@ class Auth extends ResourceController{
             $userName = $session->get('userName');
             $accessId = $session->get('accessId');
             $profileId = $session->get('profileId');
-            return $this->respond([
-                'user' => [
-                    'id_user' => $userId,
-                    'vc_user' => $userName,
-                    'id_access' => $accessId ,
-                    'id_profile' => $profileId
-                ]
-            ]);
+            // return $this->respond([
+            //     'user' => [
+            //         'id_user' => $userId,
+            //         'vc_user' => $userName,
+            //         'id_access' => $accessId ,
+            //         'id_profile' => $profileId
+            //     ]
+            // ]);
             // return $this->respond([
             //     'status' => 200,
             //     'message' => 'Login',

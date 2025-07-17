@@ -1,4 +1,5 @@
 import './assets/css/styles.css'
+import Cookies from 'js-cookie';
 import {useState} from 'react'
 
  function Login(){
@@ -21,7 +22,12 @@ import {useState} from 'react'
 
         const data = await res.json();
         if (res.ok) {
-            setMsg(`Bienvenido, ${data.user.vc_user}`);
+            Cookies.set('userId', data.user.id_user, { expires: 1 });
+            Cookies.set('userName', data.user.vc_user);
+            Cookies.set('userAccess', data.user.id_access);
+            Cookies.set('userProfile', data.user.id_profile);
+            window.location.href = "/menu";
+            // setMsg(`Bienvenido, ${data.user.vc_user}`);
             // Puedes guardar en localStorage si quieres:
             // localStorage.setItem('user', JSON.stringify(data.user));
         } else {
