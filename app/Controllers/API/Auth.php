@@ -15,9 +15,9 @@ class Auth extends ResourceController{
         $data = $this->request->getJSON(); // CAPTURA DATOS ENVIADOS EN JSON A REACT
 
         $username = $data->vc_user;
-        $pass = $data->vc_pass;
+        $pass = $data->password;
 
-        if (empty($data->vc_user) || empty($data->vc_pass)) {
+        if (empty($data->vc_user) || empty($data->password)) {
             return $this->respond("Ingresa los datos de sesion");
         }
 
