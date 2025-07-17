@@ -22,12 +22,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .form{
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    /* border: 1px solid blue; */
 }
 /* .centerLogin > .form{ */
     /* border: 1px solid white; */
@@ -42,16 +44,18 @@ body{
 
 .form-group {
   margin-bottom: 15px;
+  width: 35vh;
   /* border:1px solid aliceblue; */
 }
 
 .form-control, .form-control::placeholder{
     background: rgb(124, 124, 124);
     color: rgb(255, 255, 255);
-    width: 100%;
+    /* width: 100%; */
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
+    /* margin: 0; */
 }
 
 .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
@@ -106,6 +110,13 @@ label {
 }
 
 .msgLogin{
-    font-size: 12px;
+    font-size: 12.5px;
     color: rgb(252, 108, 108);
+    border: 1px solid green;
+}
+
+#btn-sesion{
+    background: rgb(124, 124, 124);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
 }

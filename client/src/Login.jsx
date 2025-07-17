@@ -39,36 +39,35 @@ import {useState} from 'react'
             <div className="bodyLogin">
                 <div className="centerLogin">
                     {/* CENTER */}
-                <div className="form">
-                    <form className="form-horizontal" onSubmit={handleLogin}>
-                        <div className="form-group">
-                            <div className="col-md-9">
-                                <label htmlFor="user">Usuario:</label>
-                                <input id="user" type="text" className="form-control form-group" placeholder="Usuario" value={vc_user} onChange={(e) => setUser(e.target.value)}/>
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="col-md-9">
-                                <label htmlFor="pass">Contraseña:</label>
-                                <input id="pass" type="password" className="form-control form-group" placeholder="Contraseña" value={vc_pass} onChange={(e) => setPass(e.target.value)}/>
-                            </div>
-                        </div>
-                        {
-                            msg && 
+                    <div className="form">
+                        <form className="form-horizontal" onSubmit={handleLogin}>
                             <div className="form-group">
                                 <div className="col-md-9">
-                                    <br />
-                                    <div className="msgLogin">{msg}</div>
+                                    <label htmlFor="user">Usuario:</label>
+                                    <input id="user" type="text" className="form-control form-group" placeholder="Usuario" value={vc_user} onChange={(e) => setUser(e.target.value)}/>
                                 </div>
                             </div>
-                        }
-                        <div className="form-group">
-                            <div className="col-md-9">
-                                <button type="submit" >Iniciar Sesión</button>
+                            <div className="form-group">
+                                <div className="col-md-9">
+                                    <label htmlFor="pass">Contraseña:</label>
+                                    <input id="pass" type="password" className="form-control form-group" placeholder="Contraseña" value={vc_pass} onChange={(e) => setPass(e.target.value)}/>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                            {
+                                msg && 
+                                <div className="form-group">
+                                    <div className="col-md-9">
+                                        <div className="msgLogin">{msg}</div>
+                                    </div>
+                                </div>
+                            }
+                            <div className="form-group">
+                                <div className="col-md-9">
+                                    <button type="submit" id="btn-sesion">Iniciar Sesión</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
     
