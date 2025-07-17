@@ -34,16 +34,32 @@ class Auth extends ResourceController{
         if(($user['vc_user'] != $username) || !password_verify($pass, $user['pass'])){
             return $this->failUnauthorized('Usuario o contraseña incorrectos.');
         } else {
-
+            $session = session();
+            $session->set('userId', $user['id_user']);
+            $session->set('userName', $user['vc_user']);
+            $session->set('accessId', $user['id_access']);
+            $session->set('profileId', $user['id_profile']);
+            $userId = $session->get('userId');
+            $userName = $session->get('userName');
+            $accessId = $session->get('accessId');
+            $profileId = $session->get('profileId');
             return $this->respond([
-                'status' => 200,
-                'message' => 'Login',
                 'user' => [
-                    'id_user' => $user['id_user'],
-                    'vc_user' => $user['vc_user'],
-                    't_estatus' => $user['t_estatus'],
+                    'id_user' => $userId,
+                    'vc_user' => $userName,
+                    'id_access' => $accessId ,
+                    'id_profile' => $profileId
                 ]
             ]);
+            // return $this->respond([
+            //     'status' => 200,
+            //     'message' => 'Login',
+            //     'user' => [
+            //         'id_user' => $user['id_user'],
+            //         'vc_user' => $user['vc_user'],
+            //         't_estatus' => $user['t_estatus'],
+            //     ]
+            // ]);
         }
 
 

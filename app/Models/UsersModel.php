@@ -14,7 +14,7 @@ class UsersModel extends Model{
     // }
 
     public function listUsers(){
-        return $this->select('id_user, vc_user, pass,t_estatus')->findAll();
+        return $this->select('id_user, id_acces, id_profile vc_user, pass,t_estatus')->findAll();
     }
     
 }
