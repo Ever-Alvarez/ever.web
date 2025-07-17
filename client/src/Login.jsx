@@ -3,7 +3,7 @@ import {useState} from 'react'
 
  function Login(){
     const [vc_user, setUser] = useState('');
-    const [password, setPass] = useState('');
+    const [vc_pass, setPass] = useState('');
     const [msg, setMsg] = useState('');
 
     const handleLogin = async (e) => {
@@ -16,7 +16,7 @@ import {useState} from 'react'
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ vc_user, password }),
+          body: JSON.stringify({ vc_user, vc_pass }),
         });
 
         const data = await res.json();
@@ -25,7 +25,7 @@ import {useState} from 'react'
             // Puedes guardar en localStorage si quieres:
             // localStorage.setItem('user', JSON.stringify(data.user));
         } else {
-            setMsg(data.message || 'Error al iniciar sesión');
+            setMsg(data.messages.error || 'Error');
         }
     } catch (error) {
         setMsg('Error de conexión');
@@ -48,15 +48,22 @@ import {useState} from 'react'
                         <div className="form-group">
                             <div className="col-md-9">
                                 <label htmlFor="pass">Contraseña:</label>
-                                <input type="password" className="form-control" placeholder="Contraseña" value={password} onChange={(e) => setPass(e.target.value)}/>
+                                <input type="password" className="form-control" placeholder="Contraseña" value={vc_pass} onChange={(e) => setPass(e.target.value)}/>
                             </div>
                         </div>
+                        {
+                            msg && 
+                            <div className="form-group">
+                                <div className="col-md-9">
+                                    {msg}
+                                </div>
+                            </div>
+                        }
                         <div className="form-group">
                             <button type="submit" >Iniciar Sesión</button>
                         </div>
                     </form>
                 </div>
-                {msg && <p>{msg}</p>}
                 </div>
             </div>
     
