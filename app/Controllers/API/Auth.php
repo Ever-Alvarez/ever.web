@@ -64,4 +64,8 @@ class Auth extends ResourceController{
 
 
     }
+
+    public function options(){
+        return $this->response->setStatusCode(200);
+    }
 }

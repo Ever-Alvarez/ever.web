@@ -1,11 +1,13 @@
 import './assets/css/styles.css'
 import Cookies from 'js-cookie';
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
  function Login(){
     const [vc_user, setUser] = useState('');
     const [vc_pass, setPass] = useState('');
     const [msg, setMsg] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
     e.preventDefault(); // previene que el form recargue la página
@@ -17,6 +19,7 @@ import {useState} from 'react'
           headers: {
             'Content-Type': 'application/json',
           },
+          credentials: 'include',
           body: JSON.stringify({ vc_user, vc_pass }),
         });
 
@@ -26,7 +29,7 @@ import {useState} from 'react'
             Cookies.set('userName', data.user.vc_user);
             Cookies.set('userAccess', data.user.id_access);
             Cookies.set('userProfile', data.user.id_profile);
-            window.location.href = "/menu";
+            navigate("/Home");
             // setMsg(`Bienvenido, ${data.user.vc_user}`);
             // Puedes guardar en localStorage si quieres:
             // localStorage.setItem('user', JSON.stringify(data.user));
