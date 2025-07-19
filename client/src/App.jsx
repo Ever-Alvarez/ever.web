@@ -10,7 +10,7 @@ import {
 // import './App.css'
 import Login from './Login';
 // import Header from './components/Header';
-import Menu from './components/Header';
+import Menu from './components/Home';
 import ProtectedRoute from './components/ProtectedRoute'
 // import { Router } from 'react-router-dom';
 
