@@ -10,7 +10,7 @@ import {
 // import './App.css'
 import Login from './Login';
 // import Header from './components/Header';
-import Menu from './components/Home';
+import Menu from './components/Header';
 import ProtectedRoute from './components/ProtectedRoute'
 // import { Router } from 'react-router-dom';
 
@@ -21,8 +21,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        {/* Ruta catch-all que protege todas las demás rutas */}
         <Route
-          path="/menu"
+          path="/*"
           element={
             <ProtectedRoute>
               <Menu />

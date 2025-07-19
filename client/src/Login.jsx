@@ -29,7 +29,7 @@ import { useNavigate } from 'react-router-dom';
             Cookies.set('userName', data.user.vc_user);
             Cookies.set('userAccess', data.user.id_access);
             Cookies.set('userProfile', data.user.id_profile);
-            navigate("/Home");
+            navigate("/sistema");
             // setMsg(`Bienvenido, ${data.user.vc_user}`);
             // Puedes guardar en localStorage si quieres:
             // localStorage.setItem('user', JSON.stringify(data.user));
