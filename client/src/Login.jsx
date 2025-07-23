@@ -25,6 +25,7 @@ import { useNavigate } from 'react-router-dom';
 
         const data = await res.json();
         if (res.ok) {
+            // Cookies.set('userId', data.user.id_user, { expires: 1 }); expire es para el tiempo de sesion, si no se declara, la sesion terminara al cerrar el navegador
             Cookies.set('userId', data.user.id_user, { expires: 1 });
             Cookies.set('userName', data.user.vc_user);
             Cookies.set('userAccess', data.user.id_access);
